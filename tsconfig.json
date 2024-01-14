@@ -1,0 +1,42 @@
+// 这个 tsconfig.json 文件是用来配置 TypeScript 编译器的
+{
+  "compilerOptions": {
+    // 指定编译后的目标 JavaScript 版本，ESNext 表示使用最新的 ES 标准
+    "target": "ESNext",
+    // 指定是否使用 class 字段的新语法，true 表示使用，false 表示使用旧的赋值语法
+    "useDefineForClassFields": true,
+    // 指定要包含在编译中的库文件，这里包含了 ES2020 标准库，DOM 库和 DOM 可迭代库
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    // 指定生成的模块代码的类型，ESNext 表示使用最新ES标准，即使用 import 和 export 关键字
+    "module": "ESNext",
+    // 指定是否跳过对所有声明文件（*.d.ts）的类型检查，true 表示跳过，可以提高编译速度，但可能会忽略一些类型错误
+    "skipLibCheck": true,
+    // 指定模块解析策略，bundler 表示使用与打包工具（如 webpack 或 rollup）相同的策略，即尝试解析相对路径和非相对路径的模块
+    "moduleResolution": "bundler",
+    // 指定是否允许导入扩展名为 .ts 的文件，true 表示允许，false 表示不允许
+    "allowImportingTsExtensions": true,
+    // 指定是否支持导入 JSON 模块，true 表示支持，false 表示不支持
+    "resolveJsonModule": true,
+    // 指定是否将每个文件作为单独的模块，true 表示是，false 表示否，这对于使用 babel 或 ts-loader 的项目有用
+    "isolatedModules": true,
+    // 指定是否生成输出文件，true 表示不生成，false 表示生成，这对于只进行类型检查的项目有用
+    "noEmit": true,
+    // 指定 JSX 代码的生成方式，react-jsx 表示使用 React 17+ 的新语法
+    "jsx": "react-jsx",
+    // 指定是否允许编译 JavaScript 文件，true 表示允许，false 表示不允许
+    "allowJs": true,
+    // 指定是否启用所有严格类型检查选项，true 表示启用，false 表示不启用
+    "strict": true,
+    // 指定是否报告未使用的局部变量错误，false 表示不报告，true 表示报告
+    "noUnusedLocals": false,
+    // 指定是否报告未使用的参数错误，false 表示不报告，true 表示报告
+    "noUnusedParameters": false,
+    // 指定是否报告 switch 语句中缺少 break 或 return 的错误，true 表示报告，false 表示不报告
+    "noFallthroughCasesInSwitch": true
+  },
+  // 指定要包含在编译中的文件或目录的列表，这里包含了 web 和 electron 两个目录
+  "include": [
+    "web", "electron"],
+  // 指定要引用的其他配置文件的列表，这里引用了 tsconfig.node.json 文件，表示启用项目引用的功能
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
